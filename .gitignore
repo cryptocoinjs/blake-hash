@@ -1,0 +1,7 @@
+.nyc_output
+coverage
+build
+node_modules
+
+npm-debug.log
+yarn.lock
