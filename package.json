@@ -1,6 +1,6 @@
 {
   "name": "blake-hash",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "SHA-3 proposal Blake",
   "keywords": [
     "blake"
