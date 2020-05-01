@@ -23,7 +23,7 @@ module.exports = function (name, createHash) {
 
       t.plan(1)
       hash.update = function () { throw err }
-      hash._transform(new Buffer(0), 'buffer', function (_err) { t.true(_err === err) })
+      hash._transform(Buffer.alloc(0), 'buffer', function (_err) { t.true(_err === err) })
       t.end()
     })
 
@@ -33,7 +33,7 @@ module.exports = function (name, createHash) {
   test(name + ' Blake#_flush', function (t) {
     t.test('should use Blake#digest', function (t) {
       var hash = createHash('blake256')
-      var buffer = new Buffer(0)
+      var buffer = Buffer.alloc(0)
 
       t.plan(2)
       hash.push = function (data) { t.true(data === buffer) }
@@ -78,7 +78,7 @@ module.exports = function (name, createHash) {
     t.test('should return `this`', function (t) {
       var hash = createHash('blake256')
 
-      t.same(hash.update(new Buffer(0)), hash)
+      t.same(hash.update(Buffer.alloc(0)), hash)
       t.end()
     })
 

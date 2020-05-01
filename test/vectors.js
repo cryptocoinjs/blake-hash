@@ -20,7 +20,7 @@ var vectors = [{
 
 module.exports = function (name, createHash) {
   vectors.forEach(function (vector, i) {
-    var input = new Buffer(vector.input, 'hex')
+    var input = Buffer.from(vector.input, 'hex')
 
     Object.keys(vector).forEach(function (hash) {
       if (hash === 'input') return

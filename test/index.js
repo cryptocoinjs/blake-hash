@@ -22,7 +22,7 @@ require('./random')(bindings, purejs)
 
 /*
 function puint32 (v) {
-  var x = new Buffer(4)
+  var x = Buffer.alloc(4)
   x.writeUInt32BE(v)
   process.stdout.write(x.toString('hex').toUpperCase())
 }
