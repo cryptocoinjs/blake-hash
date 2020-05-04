@@ -35,15 +35,15 @@
     "unit": "tape test/index.js"
   },
   "dependencies": {
-    "bindings": "^1.2.1",
-    "inherits": "^2.0.3",
-    "nan": "^2.2.1"
+    "bindings": "^1.5.0",
+    "inherits": "^2.0.4",
+    "nan": "^2.14.1"
   },
   "devDependencies": {
-    "nyc": "^10.0.0",
-    "standard": "^9.0.2",
-    "tape": "^4.5.1",
-    "xorshift.js": "^1.0.3"
+    "nyc": "^15.0.1",
+    "standard": "^14.3.3",
+    "tape": "^5.0.0",
+    "xorshift.js": "^2.0.1"
   },
   "engines": {
     "node": ">=4.0.0"
