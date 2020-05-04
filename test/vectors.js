@@ -1,8 +1,7 @@
-'use strict'
-var test = require('tape')
+const test = require('tape')
 
 // http://131002.net/blake/blake.pdf
-var vectors = [{
+const vectors = [{
   input: '00',
   blake224: '4504cb0314fb2a4f7a692e696e487912fe3f2468fe312c73a5278ec5',
   blake256: '0ce8d4ef4dd7cd8d62dfded9d4edb0a774ae6a41929a74da23109e8f11139c87',
@@ -18,17 +17,18 @@ var vectors = [{
   blake512: '313717d608e9cf758dcb1eb0f0c3cf9fc150b2d500fb33f51c52afc99d358a2f1374b8a38bba7974e7f6ef79cab16f22ce1e649d6e01ad9589c213045d545dde'
 }]
 
-module.exports = function (name, createHash) {
-  vectors.forEach(function (vector, i) {
-    var input = Buffer.from(vector.input, 'hex')
+module.exports = (name, createHash) => {
+  for (let i = 0; i < vectors.length; ++i) {
+    const vector = vectors[i]
+    const input = Buffer.from(vector.input, 'hex')
 
-    Object.keys(vector).forEach(function (hash) {
-      if (hash === 'input') return
+    for (const hash of Object.keys(vector)) {
+      if (hash === 'input') continue
 
-      test(name + ' ' + hash + ' vector#' + i, function (t) {
+      test(`${name} ${hash} vector#${i}`, (t) => {
         t.equal(createHash(hash).update(input).digest('hex'), vector[hash])
         t.end()
       })
-    })
-  })
+    }
+  }
 }
