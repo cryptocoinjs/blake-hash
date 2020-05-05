@@ -26,7 +26,6 @@
     "readable-stream": "^3.6.0"
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
     "node-gyp": "^6.1.0",
     "nyc": "^15.0.1",
     "prebuildify": "^4.0.0",
@@ -42,8 +41,5 @@
   "gypfile": true,
   "browser": {
     "./index.js": "./js.js"
-  },
-  "standard": {
-    "parser": "babel-eslint"
   }
 }
