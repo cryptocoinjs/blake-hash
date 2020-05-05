@@ -12,39 +12,29 @@
   "contributors": [
     "Kirill Fomichev <fanatid@ya.ru> (https://github.com/fanatid)"
   ],
-  "files": [
-    "lib",
-    "src",
-    "binding.gyp",
-    "bindings.js",
-    "index.js",
-    "js.js"
-  ],
   "main": "./index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/cryptocoinjs/blake-hash.git"
   },
   "scripts": {
-    "coverage": "nyc tape test/index.js",
-    "coverage-lcov": "npm run coverage && nyc report -r lcov",
-    "install": "npm run rebuild || echo \"blake-hash bindings compilation fail. Pure JS implementation will be used.\"",
-    "lint": "standard",
-    "rebuild": "node-gyp rebuild",
-    "test": "npm run lint && npm run unit",
-    "unit": "tape test/index.js"
+    "install": "node-gyp-build || exit 0"
   },
   "dependencies": {
-    "bindings": "^1.5.0",
-    "nan": "^2.14.1",
+    "node-addon-api": "^3.0.0",
+    "node-gyp-build": "^4.2.2",
     "readable-stream": "^3.6.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
+    "node-gyp": "^6.1.0",
     "nyc": "^15.0.1",
+    "prebuildify": "^4.0.0",
     "standard": "^14.3.3",
+    "tap-dot": "^2.0.0",
     "tape": "^5.0.0",
-    "xorshift.js": "^2.0.1"
+    "xorshift.js": "^2.0.1",
+    "yargs": "^15.3.1"
   },
   "engines": {
     "node": ">= 10"
